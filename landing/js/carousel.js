@@ -1,4 +1,4 @@
-// Reviews carousel powered by native scroll-snap.
+// Reviews slider that shows one full-size screenshot at a time.
 document.addEventListener("DOMContentLoaded", function () {
   var track = document.getElementById("reviews-track");
   var dotsRoot = document.getElementById("carousel-dots");
@@ -13,45 +13,24 @@ document.addEventListener("DOMContentLoaded", function () {
   var dots = [];
   var activeIndex = 0;
 
-  function getSlideWidth() {
-    if (!slides.length) {
-      return 0;
-    }
+  function updateSlides(index) {
+    slides.forEach(function (slide, slideIndex) {
+      var isActive = slideIndex === index;
+      slide.hidden = !isActive;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+    });
 
-    return slides[0].offsetWidth + 16;
-  }
-
-  function updateDots(index) {
     dots.forEach(function (dot, dotIndex) {
-      dot.classList.toggle("is-active", dotIndex === index);
-      dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
+      var isActive = dotIndex === index;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
     });
   }
 
-  function getClosestIndex() {
-    var slideWidth = getSlideWidth();
-    if (!slideWidth) {
-      return 0;
-    }
-
-    return Math.min(slides.length - 1, Math.round(track.scrollLeft / slideWidth));
-  }
-
-  function scrollToIndex(index) {
-    var boundedIndex = Math.max(0, Math.min(index, slides.length - 1));
-    var target = slides[boundedIndex];
-
-    if (!target) {
-      return;
-    }
-
-    track.scrollTo({
-      left: target.offsetLeft,
-      behavior: "smooth"
-    });
-
-    activeIndex = boundedIndex;
-    updateDots(activeIndex);
+  function showIndex(index) {
+    activeIndex = (index + slides.length) % slides.length;
+    updateSlides(activeIndex);
   }
 
   slides.forEach(function (_, index) {
@@ -61,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dot.setAttribute("aria-label", "Перейти к отзыву " + (index + 1));
     dot.setAttribute("aria-current", index === 0 ? "true" : "false");
     dot.addEventListener("click", function () {
-      scrollToIndex(index);
+      showIndex(index);
     });
     dotsRoot.appendChild(dot);
     dots.push(dot);
@@ -69,27 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (prevButton) {
     prevButton.addEventListener("click", function () {
-      scrollToIndex(getClosestIndex() - 1);
+      showIndex(activeIndex - 1);
     });
   }
 
   if (nextButton) {
     nextButton.addEventListener("click", function () {
-      scrollToIndex(getClosestIndex() + 1);
+      showIndex(activeIndex + 1);
     });
   }
 
-  track.addEventListener("scroll", function () {
-    window.requestAnimationFrame(function () {
-      var nextIndex = getClosestIndex();
-      if (nextIndex !== activeIndex) {
-        activeIndex = nextIndex;
-        updateDots(activeIndex);
-      }
-    });
-  });
-
-  window.addEventListener("resize", function () {
-    scrollToIndex(activeIndex);
-  });
+  updateSlides(activeIndex);
 });
