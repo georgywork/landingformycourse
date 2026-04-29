@@ -595,12 +595,6 @@ small {
   color: #a15547;
 }
 
-.form-hint {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
 .cta-button:disabled {
   cursor: wait;
   opacity: 0.7;

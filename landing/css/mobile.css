@@ -66,6 +66,15 @@
     align-items: center;
     justify-content: flex-end;
     min-height: 100%;
+    width: 100%;
+  }
+
+  .cta-copy {
+    max-width: 320px;
+  }
+
+  .lead-form {
+    align-content: start;
   }
 }
 
@@ -95,6 +104,22 @@
     grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
     gap: 40px;
     align-items: center;
+  }
+
+  .cta-panel {
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .cta-copy {
+    position: sticky;
+    top: 104px;
+  }
+
+  .lead-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 }
 
