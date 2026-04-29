@@ -43,6 +43,10 @@
     align-items: start;
   }
 
+  .lead-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .author-card {
     flex-direction: row;
     align-items: center;
@@ -149,5 +153,9 @@
   .cta-button,
   .button-secondary {
     width: 100%;
+  }
+
+  .lead-form {
+    grid-template-columns: 1fr;
   }
 }
