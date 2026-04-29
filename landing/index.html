@@ -324,15 +324,34 @@
             <p class="cta-note">Оставишь заявку — напишем тебе с деталями и ответим на вопросы.</p>
           </div>
           <div class="cta-action-group">
-            <div class="cta-row">
-              <a
-                class="cta-button"
-                href="https://forms.google.com/PLACEHOLDER"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Оставить заявку на курс
-              </a>
+            <form class="lead-form" id="lead-form" novalidate>
+              <label class="form-field">
+                <span>Имя</span>
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label class="form-field">
+                <span>Телеграм</span>
+                <input type="text" name="telegram" placeholder="@username" autocomplete="off" required>
+              </label>
+              <label class="form-field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label class="form-field form-field-full">
+                <span>Расскажи про свой продуктовый опыт и опыт аналитики рынка</span>
+                <textarea name="experience" rows="5" required></textarea>
+              </label>
+              <label class="form-field form-field-full">
+                <span>Что хочешь от курса?</span>
+                <textarea name="goals" rows="4" required></textarea>
+              </label>
+              <div class="cta-row">
+                <button class="cta-button" type="submit">Оставить заявку на курс</button>
+                <p class="form-status" id="form-status" aria-live="polite"></p>
+              </div>
+              <p class="form-hint">
+                Заявка отправится в Google Sheets и продублируется уведомлением на почту.
+              </p>
               <svg class="pixel-icon pixel-flower" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
                 <rect x="18" y="18" width="4" height="4" fill="#F5D76E"></rect>
                 <rect x="18" y="10" width="4" height="6" fill="#C8E6A0"></rect>
@@ -344,7 +363,7 @@
                 <rect x="18" y="30" width="4" height="6" fill="#7CB95B"></rect>
                 <rect x="22" y="30" width="4" height="2" fill="#A8D87A"></rect>
               </svg>
-            </div>
+            </form>
           </div>
         </div>
       </section>
@@ -361,5 +380,6 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/carousel.js" defer></script>
+  <script src="js/form.js" defer></script>
 </body>
 </html>
