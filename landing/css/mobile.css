@@ -43,6 +43,13 @@
     align-items: start;
   }
 
+  .ratings-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 720px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+
   .lead-form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -100,12 +107,6 @@
     font-size: 42px;
   }
 
-  .author-grid {
-    grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
-    gap: 40px;
-    align-items: center;
-  }
-
   .cta-panel {
     grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
     gap: 40px;
@@ -119,6 +120,13 @@
 
   .lead-form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .ratings-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+    margin: 0 auto;
     gap: 18px;
   }
 }
@@ -157,8 +165,8 @@
   }
 
   .pixel-sprout {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     margin-top: 0;
   }
 
