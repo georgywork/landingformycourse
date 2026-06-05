@@ -1,0 +1,181 @@
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+  .container {
+    width: min(calc(100% - 48px), 720px);
+  }
+
+  .section {
+    padding: 96px 0;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  p,
+  li,
+  span,
+  a,
+  small {
+    font-size: 18px;
+  }
+
+  .hero-subtitle,
+  .section-lead {
+    font-size: 20px;
+  }
+
+  .nav {
+    display: inline-flex;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .author-grid,
+  .cta-panel {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: start;
+  }
+
+  .lead-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .author-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .author-content {
+    flex: 1;
+  }
+
+  .cta-price {
+    font-size: 48px;
+  }
+
+  .cta-action-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  .cta-copy {
+    max-width: 320px;
+  }
+
+  .lead-form {
+    align-content: start;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+  .container {
+    width: min(calc(100% - 64px), 960px);
+  }
+
+  .section {
+    padding: 112px 0;
+  }
+
+  .hero {
+    padding-top: 52px;
+  }
+
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  .cta-panel {
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .cta-copy {
+    position: sticky;
+    top: 104px;
+  }
+
+  .lead-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+}
+
+/* Mobile-only refinements */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 14px 0;
+  }
+
+  .brand-text {
+    max-width: 170px;
+    line-height: 1.35;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-title-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.06;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .hero-note {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .pixel-sprout {
+    width: 72px;
+    height: 72px;
+    margin-top: 0;
+  }
+
+  .decor-corner {
+    width: 64px;
+    height: 64px;
+  }
+
+  .reviews-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-button {
+    display: none;
+  }
+
+  .cta-button,
+  .button-secondary {
+    width: 100%;
+  }
+
+  .lead-form {
+    grid-template-columns: 1fr;
+  }
+}
